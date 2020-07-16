@@ -67,6 +67,28 @@ class _ProjectsPageState extends State<ProjectsPage> {
             '\n\nA SpringBoot Web application serves the DLT api to mobile app users on both Android and iOS apps '),
     ProjectCard(
         images: [
+          Image.asset('assets/stellar.png'),
+          Image.asset('assets/java-48.png'),
+          Image.asset('assets/dart-icon.png'),
+          Image.asset('assets/springboot.png')
+        ],
+        title: 'Stellar Anchor Backend',
+        links: [
+          MyLink(
+              link:
+                  'https://github.com/malengatiger/bfn-super-repo2020/tree/master/bfn-atlas2',
+              label: 'BFN Corda DLT in Kotlin'),
+          MyLink(
+              link:
+                  'https://github.com/malengatiger/bfn-super-repo2020/tree/master/anchor',
+              label: 'Anchor Investor app (Android & iOS) built on Flutter'),
+        ],
+        text:
+            'The platform is part of a corporate R&D effort to study the feasibility of migrating an existing legacy application to a modern platform. The core of the platform is a set of nodes running Corda DLT '
+            'that manage the transactions and other operations for each of the customers, suppliers and payment gateways on the business network.'
+            '\n\nA SpringBoot Web application serves the DLT api to mobile app users on both Android and iOS apps '),
+    ProjectCard(
+        images: [
           Image.asset('assets/fabric1.png'),
           Image.asset('assets/node1.png'),
           Image.asset('assets/ts1.png'),
@@ -147,9 +169,15 @@ class _ProjectsPageState extends State<ProjectsPage> {
         const StaggeredTile.fit(2),
         const StaggeredTile.fit(2),
         const StaggeredTile.fit(2),
+        const StaggeredTile.fit(2),
+        const StaggeredTile.fit(2),
+        const StaggeredTile.fit(2),
       ];
     } else {
       mList = const <StaggeredTile>[
+        const StaggeredTile.fit(1),
+        const StaggeredTile.fit(1),
+        const StaggeredTile.fit(1),
         const StaggeredTile.fit(1),
         const StaggeredTile.fit(1),
         const StaggeredTile.fit(1),
@@ -212,7 +240,7 @@ class ProjectCard extends StatelessWidget {
     widgets.add(
       Text(
         title,
-        style: Styles.blackBoldMedium,
+        style: Styles.blackBoldSmall,
       ),
     );
     widgets.add(SizedBox(
@@ -251,14 +279,11 @@ class ProjectCard extends StatelessWidget {
               children: <Widget>[
                 Text(
                   l.label,
-                  style: Styles.blueSmall,
+                  style: Styles.blueTiny,
                 ),
               ],
             )));
       });
-      widgets.add(SizedBox(
-        height: 0,
-      ));
     }
 
     var baseSize = 200.0;

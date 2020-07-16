@@ -78,6 +78,7 @@ Color getRandomPastelColor() {
 }
 
 class Styles {
+  static const tiny = 12.0;
   static const small = 14.0;
   static const medium = 20.0;
   static const large = 32.0;
@@ -269,6 +270,11 @@ class Styles {
   static TextStyle blueSmall = TextStyle(
     fontWeight: FontWeight.normal,
     fontSize: small,
+    color: Colors.blue,
+  );
+  static TextStyle blueTiny = TextStyle(
+    fontWeight: FontWeight.normal,
+    fontSize: tiny,
     color: Colors.blue,
   );
   static TextStyle blueBoldMedium = TextStyle(
