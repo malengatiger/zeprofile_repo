@@ -50,7 +50,7 @@ class _MainPageState extends State<MainPage> {
         elevation: 0,
         bottom: PreferredSize(
             child: Padding(
-              padding: const EdgeInsets.only(left: 28, right: 28.0, top: 20.0),
+              padding: const EdgeInsets.only(left: 16, right: 16.0, top: 20.0),
               child: Column(
                 children: <Widget>[
                   Text(

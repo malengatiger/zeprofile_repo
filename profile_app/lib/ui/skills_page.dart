@@ -60,15 +60,15 @@ class SkillsPage extends StatelessWidget {
         ], rows: [
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64, height: 64, child: Image.asset('assets/corda.png'))),
+                width: 32, height: 32, child: Image.asset('assets/corda.png'))),
             DataCell(Text('Corda')),
             DataCell(Text('4')),
             DataCell(Text('2'))
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64,
-                height: 64,
+                width: 32,
+                height: 32,
                 child: Image.asset('assets/stellar.png'))),
             DataCell(Text('Stellar')),
             DataCell(Text('4')),
@@ -76,8 +76,8 @@ class SkillsPage extends StatelessWidget {
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64,
-                height: 64,
+                width: 32,
+                height: 32,
                 child: Image.asset('assets/hyperledger3.png'))),
             DataCell(Text('Hyperledger Fabric')),
             DataCell(Text('4')),
@@ -85,7 +85,9 @@ class SkillsPage extends StatelessWidget {
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64, height: 64, child: Image.asset('assets/corda.png'))),
+                width: 32,
+                height: 32,
+                child: Image.asset('assets/ripple1.jpeg'))),
             DataCell(Text('Ripple')),
             DataCell(Text('3')),
             DataCell(Text('1'))
@@ -133,19 +135,19 @@ class SkillsPage extends StatelessWidget {
             DataCell(Text('5')),
             DataCell(Text('10'))
           ]),
+//          DataRow(cells: [
+//            DataCell(SizedBox(
+//                width: 32,
+//                height: 32,
+//                child: Image.asset('assets/java-48.png'))),
+//            DataCell(Text('Java')),
+//            DataCell(Text('5')),
+//            DataCell(Text('15'))
+//          ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64,
-                height: 64,
-                child: Image.asset('assets/java-48.png'))),
-            DataCell(Text('Java')),
-            DataCell(Text('5')),
-            DataCell(Text('15'))
-          ]),
-          DataRow(cells: [
-            DataCell(SizedBox(
-                width: 64,
-                height: 64,
+                width: 32,
+                height: 32,
                 child: Image.asset('assets/springboot.png'))),
             DataCell(Text('SpringBoot')),
             DataCell(Text('5')),
@@ -162,10 +164,10 @@ class SkillsPage extends StatelessWidget {
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64, height: 64, child: Image.asset('assets/apple.png'))),
+                width: 32, height: 32, child: Image.asset('assets/apple.png'))),
             DataCell(Text('Native iOS')),
-            DataCell(Text('5')),
-            DataCell(Text('10'))
+            DataCell(Text('4')),
+            DataCell(Text('8'))
           ]),
         ]),
         Padding(
@@ -195,17 +197,17 @@ class SkillsPage extends StatelessWidget {
         ], rows: [
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64,
-                height: 64,
-                child: Image.asset('assets/docker-64.png'))),
+                width: 32,
+                height: 32,
+                child: Image.asset('assets/docker-32.png'))),
             DataCell(Text('Docker')),
             DataCell(Text('4')),
             DataCell(Text('3'))
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64,
-                height: 64,
+                width: 32,
+                height: 32,
                 child: Image.asset('assets/vscode2.png'))),
             DataCell(Text('Visual Studio Code')),
             DataCell(Text('4')),
@@ -213,8 +215,8 @@ class SkillsPage extends StatelessWidget {
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 96,
-                height: 96,
+                width: 32,
+                height: 32,
                 child: Image.asset('assets/intellij.png'))),
             DataCell(Text('IntelliJ')),
             DataCell(Text('5')),
@@ -222,8 +224,8 @@ class SkillsPage extends StatelessWidget {
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 96,
-                height: 96,
+                width: 32,
+                height: 32,
                 child: Image.asset('assets/android-64.png'))),
             DataCell(Text('Android Studio')),
             DataCell(Text('5')),
@@ -231,14 +233,14 @@ class SkillsPage extends StatelessWidget {
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 96, height: 96, child: Image.asset('assets/apple.png'))),
+                width: 32, height: 32, child: Image.asset('assets/apple.png'))),
             DataCell(Text('XCode')),
             DataCell(Text('5')),
             DataCell(Text('10'))
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 96, height: 96, child: Image.asset('assets/git0.png'))),
+                width: 32, height: 32, child: Image.asset('assets/git0.png'))),
             DataCell(Text('GitHub')),
             DataCell(Text('4')),
             DataCell(Text('10'))
@@ -254,14 +256,14 @@ class SkillsPage extends StatelessWidget {
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 96, height: 96, child: Image.asset('assets/apple.png'))),
+                width: 32, height: 32, child: Image.asset('assets/apple.png'))),
             DataCell(Text('Apple Mac OS')),
             DataCell(Text('N/A')),
             DataCell(Text('N/A'))
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 96, height: 96, child: Image.asset('assets/apple.png'))),
+                width: 32, height: 32, child: Image.asset('assets/apple.png'))),
             DataCell(Text('Slack/Skype/Zoom etc.')),
             DataCell(Text('N/A')),
             DataCell(Text('N/A'))
@@ -294,8 +296,8 @@ class SkillsPage extends StatelessWidget {
         ], rows: [
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64,
-                height: 64,
+                width: 32,
+                height: 32,
                 child: Image.asset('assets/java-48.png'))),
             DataCell(Text('Java')),
             DataCell(Text('5')),
@@ -303,7 +305,7 @@ class SkillsPage extends StatelessWidget {
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64, height: 64, child: Image.asset('assets/ts1.png'))),
+                width: 32, height: 32, child: Image.asset('assets/ts1.png'))),
             DataCell(Text('Typescript')),
             DataCell(Text('4')),
             DataCell(Text('3'))
@@ -317,15 +319,15 @@ class SkillsPage extends StatelessWidget {
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64, height: 64, child: Image.asset('assets/js2.png'))),
+                width: 32, height: 32, child: Image.asset('assets/js2.png'))),
             DataCell(Text('Javascript')),
             DataCell(Text('4')),
             DataCell(Text('5'))
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64,
-                height: 64,
+                width: 32,
+                height: 32,
                 child: Image.asset('assets/kotlin1.png'))),
             DataCell(Text('Kotlin')),
             DataCell(Text('4')),
@@ -333,8 +335,8 @@ class SkillsPage extends StatelessWidget {
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64,
-                height: 64,
+                width: 32,
+                height: 32,
                 child: Image.asset('assets/swift1.png'))),
             DataCell(Text('Swift')),
             DataCell(Text('3')),
@@ -377,22 +379,22 @@ class SkillsPage extends StatelessWidget {
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64, height: 64, child: Image.asset('assets/gcp1.png'))),
+                width: 32, height: 32, child: Image.asset('assets/gcp1.png'))),
             DataCell(Text('Google Cloud Platform')),
             DataCell(Text('5')),
             DataCell(Text('5'))
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 96, height: 96, child: Image.asset('assets/ibm2.png'))),
+                width: 32, height: 32, child: Image.asset('assets/ibm2.png'))),
             DataCell(Text('IBM Cloud')),
             DataCell(Text('4')),
             DataCell(Text('2'))
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 96,
-                height: 96,
+                width: 32,
+                height: 32,
                 child: Image.asset('assets/mongo1.png'))),
             DataCell(Text('MongoDB Atlas')),
             DataCell(Text('3')),
@@ -400,7 +402,7 @@ class SkillsPage extends StatelessWidget {
           ]),
           DataRow(cells: [
             DataCell(SizedBox(
-                width: 64, height: 64, child: Image.asset('assets/aws.png'))),
+                width: 32, height: 32, child: Image.asset('assets/aws.png'))),
             DataCell(Text('Amazon Web Services')),
             DataCell(Text('3')),
             DataCell(Text('1'))

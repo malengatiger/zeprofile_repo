@@ -3,6 +3,7 @@ import 'dart:html' as html;
 
 import 'package:flutter/material.dart';
 import 'package:profile_app/util/avatar.dart';
+import 'package:profile_app/util/functions.dart';
 import 'package:profile_app/util/util.dart';
 
 import '../util/constants.dart';
@@ -70,7 +71,7 @@ class _ProfilePageState extends State<ProfilePage>
                   GestureDetector(
                     onTap: _startAnim,
                     child: RoundAvatar(
-                        path: 'assets/tiger.jpg',
+                        path: 'assets/aubs_img1.jpg',
                         radius: animation == null ? 0.0 : animation.value * 240,
                         fromNetwork: false),
                   ),
@@ -104,8 +105,8 @@ class _ProfilePageState extends State<ProfilePage>
                   Padding(
                     padding: const EdgeInsets.all(28.0),
                     child: Text(
-                      'Corda. Stellar. Hyperledger Fabric. Node. Android. Flutter. iOS. \n\nJava. Kotlin. Dart. Typescript. Javascript. Swift.\n\nDocker. SpringBoot. Serverless. Firebase. Firestore. MongoDB \n\nAzure. Google Cloud. IBM Cloud. Amazon Web Services',
-                      style: Theme.of(context).textTheme.subtitle1,
+                      'Corda. Stellar. Hyperledger Fabric. Ripple. NodeJS. Android. Flutter. iOS. \n\nJava. Kotlin. Dart. Typescript. Javascript. Swift.\n\nDocker. SpringBoot. Serverless. Firebase. Firestore. MongoDB \n\nAzure. Google Cloud. IBM Cloud. Amazon Web Services',
+                      style: Styles.blackBoldSmall,
                       textScaleFactor: 1,
                       textAlign: TextAlign.center,
                     ),
