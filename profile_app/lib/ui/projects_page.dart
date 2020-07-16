@@ -1,8 +1,7 @@
 import 'dart:js' as js;
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:profile_app/functions.dart';
+import 'package:profile_app/util/functions.dart';
 
 class ProjectsPage extends StatelessWidget {
   @override

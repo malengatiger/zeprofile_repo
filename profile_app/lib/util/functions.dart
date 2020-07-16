@@ -2,11 +2,19 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
+
+import 'util.dart';
+
+List<String> logs = List();
+bool isBusy = false;
+
+///Global key to help navigate from anywhere the app;
+GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
 List<Color> _colors = List();
 Random _rand = Random(new DateTime.now().millisecondsSinceEpoch);
+
 Color getRandomColor() {
   _colors.clear();
   _colors.add(Colors.blue[600]);
@@ -72,7 +80,7 @@ Color getRandomPastelColor() {
 class Styles {
   static const small = 14.0;
   static const medium = 20.0;
-  static const large = 36.0;
+  static const large = 32.0;
   static const reallyLarge = 52.0;
 
   static TextStyle greyLabelSmall = TextStyle(
@@ -125,6 +133,7 @@ class Styles {
     fontSize: reallyLarge,
     color: Colors.yellow,
   );
+
   /////
   static TextStyle blackBoldSmall = TextStyle(
     fontWeight: FontWeight.bold,
@@ -208,6 +217,7 @@ class Styles {
     fontSize: reallyLarge,
     color: Colors.pink,
   );
+
   /////////
   static TextStyle purpleBoldSmall = TextStyle(
     fontWeight: FontWeight.bold,
@@ -249,6 +259,7 @@ class Styles {
     fontSize: reallyLarge,
     color: Colors.purple,
   );
+
   ///////
   static TextStyle blueBoldSmall = TextStyle(
     fontWeight: FontWeight.bold,
@@ -290,6 +301,7 @@ class Styles {
     fontSize: reallyLarge,
     color: Colors.blue,
   );
+
   ////
   static TextStyle brownBoldSmall = TextStyle(
     fontWeight: FontWeight.bold,
@@ -326,12 +338,13 @@ class Styles {
     fontSize: reallyLarge,
     color: Colors.brown,
   );
-  ///////
+
   static TextStyle whiteBoldSmall = TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: small,
     color: Colors.white,
   );
+
   static TextStyle whiteBoldMedium = TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: medium,
@@ -367,6 +380,7 @@ class Styles {
     fontSize: reallyLarge,
     color: Colors.white,
   );
+
   /////
   static TextStyle tealBoldSmall = TextStyle(
     fontWeight: FontWeight.bold,
@@ -424,15 +438,13 @@ prettyPrint(Map map, String name) {
     });
     print('}\n\n');
   } else {
-    debugPrint(
-        '📍📍📍📍 prettyPrint: 📍📍📍📍📍📍📍📍 map is NULL - tag: $name 📍📍📍📍📍📍📍📍');
+    p('📍📍📍📍 prettyPrint: 📍📍📍📍📍📍📍📍 map is NULL - tag: $name 📍📍📍📍📍📍📍📍');
   }
 }
 
 String getFormattedDateLongWithTime(String date, BuildContext context) {
   Locale myLocale = Localizations.localeOf(context);
 
-  initializeDateFormatting();
   var format = new DateFormat('EEEE, dd MMMM yyyy HH:mm', myLocale.toString());
   try {
     if (date.contains('GMT')) {
@@ -451,7 +463,6 @@ String getFormattedDateLongWithTime(String date, BuildContext context) {
 String getFormattedDateShortWithTime(String date, BuildContext context) {
   Locale myLocale = Localizations.localeOf(context);
 
-  initializeDateFormatting();
   var format = new DateFormat('dd MMMM yyyy HH:mm:ss', myLocale.toString());
   try {
     if (date.contains('GMT')) {
@@ -471,7 +482,6 @@ String getFormattedDateLong(String date, BuildContext context) {
 //  print('\getFormattedDateLong $date'); //Sun, 28 Oct 2018 23:59:49 GMT
   Locale myLocale = Localizations.localeOf(context);
 
-  initializeDateFormatting();
   var format = new DateFormat('EEEE, dd MMMM yyyy', myLocale.toString());
   try {
     if (date.contains('GMT')) {
@@ -492,7 +502,6 @@ String getFormattedDateLong(String date, BuildContext context) {
 String getFormattedDateShort(String date, BuildContext context) {
   Locale myLocale = Localizations.localeOf(context);
 
-  initializeDateFormatting();
   var format = new DateFormat('dd MMMM yyyy', myLocale.toString());
   try {
     if (date.contains('GMT')) {
@@ -513,7 +522,6 @@ String getFormattedDateShort(String date, BuildContext context) {
 String getFormattedDateShortest(String date, BuildContext context) {
   Locale myLocale = Localizations.localeOf(context);
 
-  initializeDateFormatting();
   var format = new DateFormat('dd-MM-yyyy', myLocale.toString());
   try {
     if (date.contains('GMT')) {
@@ -534,7 +542,7 @@ String getFormattedDateShortest(String date, BuildContext context) {
 int getIntDate(String date, BuildContext context) {
   print('\n---------------> getIntDate $date'); //Sun, 28 Oct 2018 23:59:49 GMT
   assert(context != null);
-  initializeDateFormatting();
+
   try {
     if (date.contains('GMT')) {
       var mDate = getLocalDateFromGMT(date, context);
@@ -550,8 +558,6 @@ int getIntDate(String date, BuildContext context) {
 }
 
 String getFormattedDateHourMinute({DateTime date, BuildContext context}) {
-  initializeDateFormatting();
-
   try {
     if (context == null) {
       var dateFormat = DateFormat('HH:mm');
@@ -572,7 +578,7 @@ DateTime getLocalDateFromGMT(String date, BuildContext context) {
   Locale myLocale = Localizations.localeOf(context);
 
   //print('+++++++++++++++ locale: ${myLocale.toString()}');
-  initializeDateFormatting();
+
   try {
     var mDate = translateGMTString(date);
     return mDate.toLocal();
@@ -628,13 +634,11 @@ int getMonth(String mth) {
 }
 
 String getUTCDate() {
-  initializeDateFormatting();
   String now = new DateTime.now().toUtc().toIso8601String();
   return now;
 }
 
 String getUTC(DateTime date) {
-  initializeDateFormatting();
   String now = date.toUtc().toIso8601String();
   return now;
 }
@@ -685,7 +689,7 @@ String getFormattedDateHourMinuteSecond() {
 String getFormattedNumber(int number, BuildContext context) {
   Locale myLocale = Localizations.localeOf(context);
   var val = myLocale.languageCode + '_' + myLocale.countryCode;
-  final oCcy = new NumberFormat("###,###,###,###,###", val);
+  final oCcy = new NumberFormat("###,###,###,###,##0", val);
 
   return oCcy.format(number);
 }
@@ -703,7 +707,7 @@ String getFormattedAmount(String amount, BuildContext context) {
   Locale myLocale = Localizations.localeOf(context);
   var val = myLocale.languageCode + '_' + myLocale.countryCode;
   //print('getFormattedAmount ----------- locale is  $val');
-  final oCcy = new NumberFormat("#,##0.00", val);
+  final oCcy = new NumberFormat("###,###,###,###,##0.00", val);
   try {
     double m = double.parse(amount);
     return oCcy.format(m);
@@ -716,24 +720,4 @@ bool get isInDebugMode {
   bool inDebugMode = false;
   assert(inDebugMode = true);
   return inDebugMode;
-}
-
-void myDebugPrint(String message) {
-  var mHour = '00', mMin = '00', mSec = '';
-  if (DateTime.now().hour < 10) {
-    mHour = '0${DateTime.now().hour}';
-  } else {
-    mHour = '${DateTime.now().hour}';
-  }
-  if (DateTime.now().minute < 10) {
-    mMin = '0${DateTime.now().minute}';
-  } else {
-    mMin = '${DateTime.now().minute}';
-  }
-  if (DateTime.now().second < 10) {
-    mSec = '0${DateTime.now().second}';
-  } else {
-    mSec = '${DateTime.now().second}';
-  }
-  debugPrint("$mHour:$mMin:$mSec => $message");
 }

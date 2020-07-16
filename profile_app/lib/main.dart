@@ -8,9 +8,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Aubrey Malabie',
+      title: 'Aubrey V Malabie',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.indigo, fontFamily: "Raleway"),
+      theme: ThemeData.from(
+        colorScheme: const ColorScheme.light(),
+      ).copyWith(
+        pageTransitionsTheme: const PageTransitionsTheme(
+          builders: <TargetPlatform, PageTransitionsBuilder>{
+            TargetPlatform.android: ZoomPageTransitionsBuilder(),
+          },
+        ),
+      ),
       home: MainPage(),
     );
   }

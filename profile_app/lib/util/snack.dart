@@ -2,29 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 ///Utility class to provide snackbars
-class AppSnackbar {
-  static showSnackbar(
+class AppSnackBar {
+  static showSnackBar(
       {@required GlobalKey<ScaffoldState> scaffoldKey,
-      @required String message,
-      Color textColor,
-      Color backgroundColor}) {
+        @required String message,
+        @required Color textColor,
+        @required Color backgroundColor}) {
     if (scaffoldKey.currentState == null) {
       print('AppSnackbar.showSnackbar --- currentState is NULL, quit ..');
       return;
     }
     scaffoldKey.currentState.removeCurrentSnackBar();
     scaffoldKey.currentState.showSnackBar(new SnackBar(
-      content: _getText(message, textColor == null ? Colors.white : textColor),
+      content: _getText(message, textColor),
       duration: new Duration(seconds: 15),
-      backgroundColor: backgroundColor == null ? Colors.black : backgroundColor,
+      backgroundColor: backgroundColor,
     ));
   }
 
-  static showSnackbarWithProgressIndicator(
+  static showSnackBarWithProgressIndicator(
       {@required GlobalKey<ScaffoldState> scaffoldKey,
-      @required String message,
-      Color textColor,
-      Color backgroundColor}) {
+        @required String message,
+        @required Color textColor,
+        @required Color backgroundColor}) {
     if (scaffoldKey.currentState == null) {
       return;
     }
@@ -42,24 +42,24 @@ class AppSnackbar {
               ),
             ),
           ),
-          _getText(message, textColor == null ? Colors.white : textColor),
+          _getText(message, textColor),
         ],
       ),
       duration: new Duration(minutes: 5),
-      backgroundColor: backgroundColor == null ? Colors.black : backgroundColor,
+      backgroundColor: backgroundColor,
     ));
   }
 
-  static showSnackbarWithAction(
+  static showSnackBarWithAction(
       {@required GlobalKey<ScaffoldState> scaffoldKey,
-      @required String message,
-      Color textColor,
-      Color backgroundColor,
-      String actionLabel,
-      SnackBarListener listener,
-      IconData icon,
-      int durationMinutes,
-      int action}) {
+        @required String message,
+        @required Color textColor,
+        @required Color backgroundColor,
+        String actionLabel,
+        SnackBarListener listener,
+        IconData icon,
+        int durationMinutes,
+        int action}) {
     if (scaffoldKey.currentState == null) {
       print(
           'AppSnackbar.showSnackbarWithAction --- currentState is NULL, quit ..');
@@ -74,17 +74,17 @@ class AppSnackbar {
             child: new Container(
               height: 40.0,
               width: 40.0,
-              child: Icon(icon == null ? Icons.arrow_forward : icon),
+              child: Icon(icon),
             ),
           ),
-          _getText(message, textColor == null ? Colors.white : textColor),
+          _getText(message, textColor),
         ],
       ),
       duration:
-          new Duration(minutes: durationMinutes == null ? 10 : durationMinutes),
-      backgroundColor: backgroundColor == null ? Colors.black : backgroundColor,
+      new Duration(minutes: durationMinutes == null ? 10 : durationMinutes),
+      backgroundColor: backgroundColor,
       action: SnackBarAction(
-        label: actionLabel == null ? '' : actionLabel,
+        label: actionLabel,
         onPressed: () {
           listener.onActionPressed(action);
         },
@@ -93,9 +93,9 @@ class AppSnackbar {
   }
 
   static Widget _getText(
-    String message,
-    Color textColor,
-  ) {
+      String message,
+      Color textColor,
+      ) {
     return Text(
       message,
       overflow: TextOverflow.clip,
@@ -103,11 +103,10 @@ class AppSnackbar {
     );
   }
 
-  static showErrorSnackbar(
+  static showErrorSnackBar(
       {@required GlobalKey<ScaffoldState> scaffoldKey,
-      @required String message,
-      SnackBarListener listener,
-      String actionLabel}) {
+        @required String message,
+        String actionLabel, Color color}) {
     if (scaffoldKey == null || scaffoldKey.currentState == null) {
       print('AppSnackbar.showErrorSnackbar --- currentState is NULL, quit ..');
       return;
@@ -115,19 +114,18 @@ class AppSnackbar {
       scaffoldKey.currentState.removeCurrentSnackBar();
     }
 
-    var snackbar = new SnackBar(
+    var snackBar = new SnackBar(
       content: _getText(message, Colors.white),
       duration: new Duration(seconds: 20),
-      backgroundColor: Colors.pink.shade900,
+      backgroundColor: color == null? Theme.of(scaffoldKey.currentContext).primaryColor : color,
       action: SnackBarAction(
-        label: actionLabel == null ? '' : actionLabel,
+        label: actionLabel == null? '': actionLabel,
         onPressed: () {
-          listener.onActionPressed(Error);
         },
       ),
     );
 
-    scaffoldKey.currentState.showSnackBar(snackbar);
+    scaffoldKey.currentState.showSnackBar(snackBar);
   }
 
   static const Error = 0, Action = 1;
